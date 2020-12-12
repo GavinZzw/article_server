@@ -1,0 +1,14 @@
+.DS_Store
+.project
+*.swo
+*.swp
+*.swm
+*.pyc
+.idea/
+.settings/
+!*.gitkeep
+.vscode
+.idea
+media/
+static/
+venv_py3/
