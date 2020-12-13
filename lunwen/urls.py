@@ -21,14 +21,15 @@ from django.urls import path
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
 
-from article.views import ArticleViewSet, ArticleFirstTypeViewSet, ArticleSecondTypeViewSet
+from article.views import ArticleViewSet, ArticleTypeViewSet
 
 router = routers.SimpleRouter(trailing_slash=False)
 router.register('article', ArticleViewSet)
-router.register('firstType', ArticleFirstTypeViewSet)
-router.register('secondType', ArticleSecondTypeViewSet)
+router.register('articleType', ArticleTypeViewSet)
+# router.register('secondType', ArticleSecondTypeViewSet)
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', include(router.urls)),
+                  path('ckeditor', include('ckeditor_uploader.urls')),
                   path('docs/', include_docs_urls(title="接口文档")),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
