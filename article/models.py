@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 
+
 # class ArticleFirstType(models.Model):
 #     name = models.CharField('名称', max_length=200)
 #     created = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
@@ -31,6 +32,8 @@ from ckeditor_uploader.fields import RichTextUploadingField
 #         db_table = "article_second_type"
 #         verbose_name = "文章第二类别"
 #         verbose_name_plural = verbose_name
+from django.utils import timezone
+
 
 class ArticleType(models.Model):
     name = models.CharField('名称', max_length=200)
@@ -53,7 +56,7 @@ class Article(models.Model):
     img = models.ImageField(upload_to="image/%Y%m%d/", verbose_name="论文配图", blank=True, null=True)
     content = RichTextUploadingField(verbose_name="论文内容")
     created = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
-    updated = models.DateTimeField(auto_now=True, verbose_name="更新时间")
+    updated = models.DateTimeField(default=timezone.now, verbose_name="更新时间")
     article_type = models.ForeignKey(ArticleType, on_delete=models.CASCADE, related_name="articles",
                                      verbose_name='文章类别')
     status = models.BooleanField(default=True, verbose_name="是否存在")

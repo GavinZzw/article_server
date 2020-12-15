@@ -16,7 +16,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 
 class ArticleTypeSerializer(serializers.ModelSerializer):
-    articles = ArticleSerializer(many=True)
+    # articles = ArticleSerializer(many=True)
     created = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
     updated = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
     
