@@ -11,7 +11,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
 @admin.register(ArticleType)
 class ArticleFirstTypeAdmin(admin.ModelAdmin):
-    list_display = ("name",)
+    list_display = ("name", "priority")
     search_fields = ("name",)
 
 # @admin.register(ArticleFirstType)

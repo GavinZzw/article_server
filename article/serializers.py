@@ -9,6 +9,7 @@ from article.models import Article, ArticleType
 
 class ArticleSerializer(serializers.ModelSerializer):
     updated = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
+    author = serializers.CharField(source="author.first_name")
     
     class Meta:
         model = Article
