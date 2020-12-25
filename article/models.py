@@ -70,6 +70,7 @@ class Article(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts', verbose_name="论文作者")
     img = models.ImageField(upload_to="image/%Y%m%d/", verbose_name="论文配图", blank=True, null=True)
     content = RichTextUploadingField(verbose_name="论文内容")
+    summary = models.CharField(max_length=100, default="", verbose_name="论文摘要")
     created = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
     updated = models.DateTimeField(default=timezone.now, verbose_name="更新时间")
     article_type = models.ForeignKey(ArticleType, on_delete=models.CASCADE, related_name="articles",

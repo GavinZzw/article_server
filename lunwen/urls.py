@@ -28,8 +28,8 @@ router.register('article', ArticleViewSet)
 router.register('articleType', ArticleTypeViewSet)
 # router.register('secondType', ArticleSecondTypeViewSet)
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path('', include(router.urls)),
+                  path('api/admin/', admin.site.urls),
+                  path('api/', include(router.urls)),
                   path('ckeditor', include('ckeditor_uploader.urls')),
                   path('docs/', include_docs_urls(title="接口文档")),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
