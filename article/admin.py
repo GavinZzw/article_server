@@ -5,13 +5,13 @@ from article.models import Article, ArticleType
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ("title", "author", "updated", "article_type", "status")
+    list_display = ("id", "title", "author", "updated", "article_type", "status")
     search_fields = ("title", "content")
 
 
 @admin.register(ArticleType)
 class ArticleFirstTypeAdmin(admin.ModelAdmin):
-    list_display = ("name", "priority")
+    list_display = ("id", "name", "priority")
     search_fields = ("name",)
 
 # @admin.register(ArticleFirstType)
